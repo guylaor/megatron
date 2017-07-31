@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LeftNav from './LeftNav';
 import MainContent from './mainContent'
@@ -7,11 +7,13 @@ import '../css/style.css'
 
 const App = () => {
 	return (
-		<div className='app'>
-			<LeftNav />
-			<MainContent />
-		</div>
+		<MuiThemeProvider>
+			<div className='app'>
+				<LeftNav />
+				<MainContent />
+			</div>
+		</MuiThemeProvider>
 	)
 };
 
-render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
