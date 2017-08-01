@@ -1,16 +1,36 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import FlatButton from 'material-ui/FlatButton';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
+injectTapEventPlugin();
 
-const LeftNav = React.createClass({
+class LeftNav extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {open: false};
+  }
+
+  handleToggle() {
+  	this.setState({open: !this.state.open})
+  }
+
 	render() {
 		return(
-			<div className='leftNav'>
-				<p>Left Nav Bar</p>
-				<RaisedButton label="Default" />
-			</div>
+			<div>
+				<FlatButton
+		          label="Side Menu"
+		          onTouchTap={this.handleToggle.bind(this)}
+		        />
+		        <Drawer open={this.state.open}>
+		          <MenuItem>Menu Item</MenuItem>
+		          <MenuItem>Menu Item 2</MenuItem>
+		        </Drawer>
+    		</div>
 		)
 	}
-});
+};
 
 export default LeftNav;
