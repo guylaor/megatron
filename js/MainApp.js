@@ -5,14 +5,17 @@ import LeftNav from './LeftNav';
 import MainContent from './mainContent';
 import '../css/style.css';
 
-const App = () => {
-	return (
-		<MuiThemeProvider>
-			<div className='app'>
-				<MainContent />
-			</div>
-		</MuiThemeProvider>
-	)
+
+class App extends React.Component {
+	render() {
+		return (
+			<MuiThemeProvider>
+				<div className='app'>
+					<MainContent />
+				</div>
+			</MuiThemeProvider>
+		)
+	}
 };
 
 ReactDOM.render(<App />, document.getElementById('app'));

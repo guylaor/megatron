@@ -3,6 +3,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import ListItems from './menuItems'
 
 injectTapEventPlugin();
 
@@ -25,8 +26,7 @@ class LeftNav extends React.Component {
 		          onTouchTap={this.handleToggle.bind(this)}
 		        />
 		        <Drawer open={this.state.open}>
-		          <MenuItem>Menu Item</MenuItem>
-		          <MenuItem>Menu Item 2</MenuItem>
+		          <MenuItem><ListItems /></MenuItem>
 		        </Drawer>
     		</div>
 		)

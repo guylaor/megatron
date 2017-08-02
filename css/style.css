@@ -9,7 +9,14 @@
 }
 
 .mainContent {
-	text-align: center;
 	height: 100%;
 	width: auto;
+	text-align: center;
+}
+
+.MainContentList {
+	height: auto;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
 }

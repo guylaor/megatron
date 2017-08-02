@@ -1,0 +1,27 @@
+{
+	"Articles": [{
+		"Article_Name": "Hi",
+		"Opened_By": "John",
+		"Last_Updated": "12-18-2017"
+	},
+	{
+		"Article_Name": "What",
+		"Opened_By": "Jane",
+		"Last_Updated": "12-19-2017"
+	},
+	{
+		"Article_Name": "Who",
+		"Opened_By": "James",
+		"Last_Updated": "12-20-2017"
+	},
+	{
+		"Article_Name": "When",
+		"Opened_By": "Jimmy",
+		"Last_Updated": "12-21-2017"
+	},
+	{
+		"Article_Name": "Where",
+		"Opened_By": "Why",
+		"Last_Updated": "12-22-2017"
+	}]
+}
