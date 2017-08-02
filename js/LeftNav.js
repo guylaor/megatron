@@ -22,7 +22,7 @@ class LeftNav extends React.Component {
 		return(
 			<div>
 				<FlatButton
-		          label="Side Menu"
+		          label="Navigation Bar"
 		          onTouchTap={this.handleToggle.bind(this)}
 		        />
 		        <Drawer open={this.state.open}>

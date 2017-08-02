@@ -15,21 +15,25 @@ const ListItems = () => (
       <Subheader>Folders</Subheader>
       <ListItem
         leftAvatar={<Avatar icon={<FileFolder />} />}
-        rightIcon={<ActionInfo />}
-        primaryText="Article Name"
-        secondaryText="Jan 9, 2014"
-      />
-      <ListItem
-        leftAvatar={<Avatar icon={<FileFolder />} />}
-        rightIcon={<ActionInfo />}
-        primaryText="Opened By"
-        secondaryText="Jan 17, 2014"
-      />
-      <ListItem
-        leftAvatar={<Avatar icon={<FileFolder />} />}
-        rightIcon={<ActionInfo />}
-        primaryText="Last Updated"
-        secondaryText="Jan 28, 2014"
+        primaryText="Books"
+        initiallyOpen={false}
+        primaryTogglesNestedList={true}
+        nestedItems={[
+          <ListItem
+          key={1}
+          primaryText="Hinduism"
+          leftIcon={<FileFolder />}
+          initiallyOpen={false}
+          primaryTogglesNestedList={true}
+          nestedItems={[
+            <ListItem
+              key={1}
+              primaryText="Yoga Sutras"
+              leftIcon={<FileFolder />}
+            />
+            ]}
+          />
+        ]}
       />
     </List>
   </div>
