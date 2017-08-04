@@ -1,0 +1,22 @@
+.leftNav {
+	background-color: #808080;
+	height: 100%;
+	width: auto;
+	position: fixed;
+	padding-right: 30px;
+	padding-left: 20px;
+	text-align: center;
+}
+
+.mainContent {
+	height: 100%;
+	width: auto;
+	text-align: center;
+}
+
+.MainContentList {
+	height: auto;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
