@@ -35,36 +35,36 @@ class MainContent extends React.Component {
 					<List>
 						<table className="MainContentList">
 							<td>
+								<h3>Article Name</h3>
+								{preload.Articles.map(article => (
 								<ListItem
 									leftAvatar={<Avatar icon={<FileFolder />} />}
 									rightIcon={<ActionInfo />}
-									primaryText="Article Name"
+									primaryText={article.Article_Name}
 									secondaryText="Jan 9, 2014"
 								/>
-								{preload.Articles.map(article => (
-								<p>{article.Article_Name}</p>
-								))}
-							</td>
-								<td>
-								<ListItem
-									leftAvatar={<Avatar icon={<FileFolder />} />}
-									rightIcon={<ActionInfo />}
-									primaryText="Opened By"
-									secondaryText="Jan 17, 2014"
-								/>
-								{preload.Articles.map(article => (
-								<p>{article.Opened_By}</p>
 								))}
 							</td>
 							<td>
+								<h3>Opened By</h3>
+								{preload.Articles.map(article => (
 								<ListItem
 									leftAvatar={<Avatar icon={<FileFolder />} />}
 									rightIcon={<ActionInfo />}
-									primaryText="Last Updated"
+									primaryText={article.Opened_By}
+									secondaryText="Jan 17, 2014"
+								/>
+								))}
+							</td>
+							<td>
+								<h3>Last Updated</h3>
+								{preload.Articles.map(article => (
+								<ListItem
+									leftAvatar={<Avatar icon={<FileFolder />} />}
+									rightIcon={<ActionInfo />}
+									primaryText={article.Last_Updated}
 									secondaryText="Jan 28, 2014"
 								/>
-								{preload.Articles.map(article => (
-								<p>{article.Last_Updated}</p>
 								))}
 							</td>
 						</table>
