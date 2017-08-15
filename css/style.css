@@ -20,3 +20,11 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.openedByBox {
+	font-weight: bold;
+}
+
+.ArticleHeader {
+	margin-left: 55px;
+}

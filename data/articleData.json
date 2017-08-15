@@ -1,27 +1,40 @@
 {
-	"Articles": [{
-		"Article_Name": "Hi",
-		"Opened_By": "John",
-		"Last_Updated": "12-18-2017"
-	},
-	{
-		"Article_Name": "But its not letting me What",
-		"Opened_By": "Jane",
-		"Last_Updated": "12-19-2017"
-	},
-	{
-		"Article_Name": "I am trying to change this Who",
-		"Opened_By": "James",
-		"Last_Updated": "12-20-2017"
-	},
-	{
-		"Article_Name": "When",
-		"Opened_By": "Jimmy",
-		"Last_Updated": "12-21-2017"
-	},
-	{
-		"Article_Name": "This is a very long book title indeed! one that can be considered to be very long!",
-		"Opened_By": "Why",
-		"Last_Updated": "12-22-2017"
-	}]
+	"Articles": [
+		{
+			"id": 1,
+			"Article_Name": "hello",
+			"Opened_By": "John",
+			"Last_Updated": "12-18-2017"
+		},
+		{
+			"id": 2,
+			"Article_Name": "But its not letting me What",
+			"Opened_By": "Jane",
+			"Last_Updated": "12-19-2017"
+		},
+		{
+			"id": 3,
+			"Article_Name": "I am trying to change this Who",
+			"Opened_By": "James",
+			"Last_Updated": "12-20-2017"
+		},
+		{
+			"id": 4,
+			"Article_Name": "When",
+			"Opened_By": "Jimmy",
+			"Last_Updated": "12-21-2017"
+		},
+		{
+			"id": 5,
+			"Article_Name": "This is a very long book title indeed! one that can be considered to be very long!",
+			"Opened_By": "Why",
+			"Last_Updated": "12-22-2017"
+		},
+		{
+			"id": 6,
+			"Article_Name": "Testing the new format",
+			"Opened_By": "Well hello there",
+			"Last_Updated": "12-22-2022"
+		}
+	]
 }
