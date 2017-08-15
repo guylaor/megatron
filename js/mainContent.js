@@ -45,9 +45,8 @@ class MainContent extends Component {
 		let articleComponent;
 		articleComponent = (this.state.articles.map(article=>
 
-			<ListItem 
+			<ListItem key={article.id}				
 				className="articleComponent"
-				key={article.id}
 				leftAvatar={<Avatar icon={<FileFolder />} />}
 				primaryText={article.Article_Name}
 				secondaryText={article.Last_Updated}
@@ -56,8 +55,7 @@ class MainContent extends Component {
 		let openedComponent;
 		openedComponent = (this.state.articles.map(article=>
 
-			<ListItem 
-				key={article.id}
+			<ListItem key={article.id}
 				primaryText="Opened By:"
 				secondaryText={article.Opened_By}
 			/>
@@ -70,31 +68,28 @@ class MainContent extends Component {
 					onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}
 					iconElementRight={<LeftNav />}
 				/>
-					<List>
-						<table className="MainContentList">
-							<thead>
-								<tr>
-									<th />
-								</tr>
-							</thead>
-							<tbody>
+					<table className="MainContentList">
+						<thead>
 							<tr>
-								<td >
-									<h3 className="ArticleHeader">Article</h3>
-								</td>
-								
+								<th />
 							</tr>
-							<tr>
-								<td>
-									{articleComponent}
-								</td>
-								<td>
-									{openedComponent}
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</List>
+						</thead>
+						<tbody>
+						<tr>
+							<td >
+								<h3 className="ArticleHeader">Article</h3>
+							</td>			
+						</tr>
+						<tr>
+							<td>
+								{articleComponent}
+							</td>
+							<td>
+								{openedComponent}
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 
 		)
