@@ -11,7 +11,7 @@ class LeftNav extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {open: false};
+		this.state = {open: true};
   }
 
   handleToggle() {
@@ -21,10 +21,7 @@ class LeftNav extends React.Component {
 	render() {
 		return(
 			<div>
-				<FlatButton
-		          label="Navigation Bar"
-		          onTouchTap={this.handleToggle.bind(this)}
-		        />
+				
 		        <Drawer open={this.state.open}>
 		          <MenuItem><ListItems /></MenuItem>
 		        </Drawer>

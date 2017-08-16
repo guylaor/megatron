@@ -10,7 +10,8 @@
 
 .mainContent {
 	height: 100%;
-	width: auto;
+	width: 70%;
+	margin-left: 320px;
 	text-align: center;
 }
 
@@ -27,4 +28,8 @@
 
 .ArticleHeader {
 	margin-left: 55px;
+}
+
+.mainContentContainer {
+
 }

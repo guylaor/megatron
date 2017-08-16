@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import LeftNav from './LeftNav'
 import AppBar from 'material-ui/AppBar'
 import preload from '../data/articleData.json'
 import {List, ListItem} from 'material-ui/List';
@@ -10,6 +9,7 @@ import FileFolder from 'material-ui/svg-icons/file/folder';
 import {blue500, yellow600} from 'material-ui/styles/colors';
 import MenuItem from 'material-ui/MenuItem';
 import axios from 'axios';
+import LeftNav from './LeftNav';
 
 
 
@@ -51,7 +51,7 @@ class MainContent extends Component {
 				primaryText={article.Article_Name}
 				secondaryText={article.Last_Updated}
 			/>
-			));
+		));
 		let openedComponent;
 		openedComponent = (this.state.articles.map(article=>
 
@@ -59,22 +59,26 @@ class MainContent extends Component {
 				primaryText="Opened By:"
 				secondaryText={article.Opened_By}
 			/>
-			));
+		));
+
+		let testComponent;
+		testComponent = (this.state.articles.map(article=>
+
+			<ListItem key={article.id}
+				primaryText="Test By:"
+				secondaryText={article.Opened_By}
+			/>
+		));
 		
 		return(
 			<div className='mainContent'>
-				<AppBar
-					title="Title"
-					onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}
-					iconElementRight={<LeftNav />}
-				/>
-					<table className="MainContentList">
-						<thead>
-							<tr>
-								<th />
-							</tr>
-						</thead>
-						<tbody>
+				<table className="MainContentList">
+					<thead>
+						<tr>
+							<th />
+						</tr>
+					</thead>
+					<tbody>
 						<tr>
 							<td >
 								<h3 className="ArticleHeader">Article</h3>
@@ -87,11 +91,11 @@ class MainContent extends Component {
 							<td>
 								{openedComponent}
 							</td>
+							
 						</tr>
 					</tbody>
 				</table>
 			</div>
-
 		)
 	}
 };

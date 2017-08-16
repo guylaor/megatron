@@ -12,6 +12,7 @@ class App extends React.Component {
 			<MuiThemeProvider>
 				<div className='app'>
 					<MainContent />
+					<LeftNav />
 				</div>
 			</MuiThemeProvider>
 		)
