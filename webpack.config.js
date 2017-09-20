@@ -23,7 +23,9 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
+				exclude: /(disposables)/,
 				loader: 'babel-loader'
+				
 			},
 			{
 				test: /\.css$/,

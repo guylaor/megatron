@@ -5,77 +5,87 @@
       "type": "Book Category",
       "id": 1,
       "parent": 0,
-      "lang": "en"
-    },
-    {
-      "title": "Yoga Sutras",
-      "type": "Book",
-      "id": 2,
-      "parent": 1,
-      "lang": "en"
-    },
-    {
-      "title": "Chapter 1",
-      "type": "Chapter",
-      "id": 3,
-      "parent": 2,
-      "lang": "en"
-    },
-    {
-      "title": "Bhagavad Gita",
-      "type": "Book",
-      "id": 4,
-      "parent": 1,
-      "lang": "en"
-    },
-    {
-      "title": "Chapter 1",
-      "type": "Chapter",
-      "id": 5,
-      "parent": 4,
-      "lang": "en"
-    },
-    {
-      "title": "Chapter 2",
-      "type": "Chapter",
-      "id": 6,
-      "parent": 4,
-      "lang": "en"
+      "lang": "en",
+      "children": [
+        {
+          "title": "Yoga Sutras",
+          "type": "Book",
+          "id": 2,
+          "parent": 1,
+          "lang": "en",
+          "children":[
+            {
+              "title": "Chapter 1",
+              "type": "Chapter",
+              "id": 3,
+              "parent": 2,
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "title": "Bhagavad Gita",
+          "type": "Book",
+          "id": 4,
+          "parent": 1,
+          "lang": "en",
+          "children":[
+            {
+              "title": "Chapter 1",
+              "type": "Chapter",
+              "id": 5,
+              "parent": 4,
+              "lang": "en"
+            },
+            {
+              "title": "Chapter 2",
+              "type": "Chapter",
+              "id": 6,
+              "parent": 4,
+              "lang": "en"
+            }
+          ]
+        }
+      ]
     },
     {
       "title": "Judaism",
       "type": "Book Category",
       "id": 7,
       "parent": 0,
-      "lang": "en"
-    },
-    {
-      "title": "The short and long way from here to here",
-      "type": "Book",
-      "id": 8,
-      "parent": 7,
-      "lang": "en"
-    },
-    {
-      "title": "Aykea",
-      "type": "Book",
-      "id": 9,
-      "parent": 7,
-      "lang": "en"
-    },
-    {
-      "title": "Part 1",
-      "type": "Chapter",
-      "id": 10,
-      "parent": 8,
-      "lang": "en"
-    },
-    {
-      "title": "Hineni",
-      "type": "Book",
-      "id": 11,
-      "parent": 7,
-      "lang": "en"
+      "lang": "en",
+      "children":[
+        {
+          "title": "The short and long way from here to here",
+          "type": "Book",
+          "id": 8,
+          "parent": 7,
+          "lang": "en",
+          "children": [
+            {
+              "title": "Part 1",
+              "type": "Chapter",
+              "id": 10,
+              "parent": 8,
+              "lang": "en"
+            }
+          ]
+        },
+        {
+          "title": "Aykea",
+          "type": "Book",
+          "id": 9,
+          "parent": 7,
+          "lang": "en"
+        },
+        {
+          "title": "Hineni",
+          "type": "Book",
+          "id": 11,
+          "parent": 7,
+          "lang": "en"
+        }
+      ]
     }
   ]
 }

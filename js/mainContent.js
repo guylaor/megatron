@@ -26,7 +26,6 @@ class MainContent extends Component {
 		axios.get(`http://localhost:3000/Articles`)
 			.then((response: {data: {Article_Name: string }}) => {
 				this.setState({articles: response.data});
-				console.log(this.state.articles)
 			})
 	}
 
@@ -60,15 +59,6 @@ class MainContent extends Component {
 				secondaryText={article.Opened_By}
 			/>
 		));
-
-		let testComponent;
-		testComponent = (this.state.articles.map(article=>
-
-			<ListItem key={article.id}
-				primaryText="Test By:"
-				secondaryText={article.Opened_By}
-			/>
-		));
 		
 		return(
 			<div className='mainContent'>
@@ -85,13 +75,13 @@ class MainContent extends Component {
 							</td>			
 						</tr>
 						<tr>
-							<td>
+							<td >
 								{articleComponent}
 							</td>
-							<td>
+							<td >
 								{openedComponent}
 							</td>
-							
+
 						</tr>
 					</tbody>
 				</table>
