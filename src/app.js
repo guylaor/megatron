@@ -1,7 +1,18 @@
 import React from 'react'
 import { render } from 'react-dom'
+import StylesLogin from './login';
+
+
+
+class App extends React.Component {
+	render () {
+		return (
+			<StylesLogin />
+		)
+	}
+}
 
 render (
-  <div>hello from react</div>,
+  < App />,
   document.getElementById('root')
 )
