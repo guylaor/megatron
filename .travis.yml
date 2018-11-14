@@ -2,13 +2,21 @@ os:
   - linux
 
 language: node_js
-  - '8'
 
-sudo: enabled
-
-install: npm install
+node_js:
+  - "7.7"
 
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
+
+script:
+  - node --version
+  - npm --version
+  - npm install
+  - npm test
+
+cache:
+  directories:
+    - node_modules
