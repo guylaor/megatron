@@ -2,6 +2,7 @@ os:
   - linux
 
 language: node_js
+  - '8.11.1'
 
 sudo: enabled
 
