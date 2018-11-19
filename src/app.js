@@ -1,13 +1,18 @@
 import React from 'react'
 import { render } from 'react-dom'
-import StylesLogin from './login';
+import Login from './components/login';
 
 
 
 class App extends React.Component {
 	render () {
 		return (
-			<StylesLogin />
+			<div className="mainApp">
+				<div className="loginApp">
+					<Login />
+				</div>
+			</div>
+
 		)
 	}
 }
