@@ -13,7 +13,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-
 const styles = theme => ({
   main: {
     width: 'auto',
@@ -91,4 +90,12 @@ SignIn.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SignIn);
+class StylesLogin extends React.Component{
+  render () {
+    return (
+      withStyles(styles)(SignIn)
+    )
+  }
+}
+
+export default StylesLogin

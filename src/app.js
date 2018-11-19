@@ -7,7 +7,7 @@ import StylesLogin from './login';
 class App extends React.Component {
 	render () {
 		return (
-			<StylesLogin />
+			< StylesLogin />
 		)
 	}
 }
