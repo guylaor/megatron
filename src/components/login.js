@@ -12,6 +12,7 @@ import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import PlaceholderLogin from '../api/login';
 
 
 const styles = theme => ({
@@ -48,7 +49,6 @@ const styles = theme => ({
 
 function SignIn(props) {
   const { classes } = props;
-
   return (
     <main className={classes.main}>
       <CssBaseline />
@@ -78,6 +78,7 @@ function SignIn(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={PlaceholderLogin}
           >
             Sign in
           </Button>
@@ -91,4 +92,5 @@ SignIn.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SignIn);
+ export default withStyles(styles)(SignIn);
+
