@@ -14,7 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import PlaceholderLogin from '../api/login';
 
-
 const styles = theme => ({
   main: {
     width: 'auto',
@@ -92,5 +91,7 @@ SignIn.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
- export default withStyles(styles)(SignIn);
+
+export default withStyles(styles)(SignIn);
+
 
