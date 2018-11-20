@@ -1,11 +1,33 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 
-function createWindow () {
+let mainWindow;
+let backgroundWindow;
+
+function createMainWindow () {
   // Create the browser window.
   win = new BrowserWindow({ width: 800, height: 600 })
-
   // and load the index.html of the app.
-  win.loadFile('index.html')
+  win.loadURL(`file://${__dirname}/index.html`);
+  return win;
+
 }
 
-app.on('ready', createWindow)
+function createBackgroundWindow() {
+
+  win = new BrowserWindow({ show: false });
+  win.loadURL(`file://${__dirname}/background/bg_index.html`);
+  return win;
+
+}
+
+app.on('ready', () => {
+  mainWindow = createMainWindow();
+  backgroundWindow = createBackgroundWindow();
+});
+
+// event listener
+
+ipcMain.on('bg_windowload', (event, arg) => {
+  console.log(arg) // prints "ping"
+ // event.returnValue = 'pong'
+})
