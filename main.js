@@ -3,18 +3,30 @@ const LocalStore = require('./utils/local_store.js');
 
 let mainWindow;
 let backgroundWindow;
+let AppStore;
+let AppState = {
+  status : "loading"
+};
 
-function createMainWindow (args) {
+function initAppStore(args) {
 
-  let store;
+  // setting up local storage
   if ( args[2] != "" ) {
-    store = new LocalStore({ fileName: "MegatronLocalConfig", template: { projects: [] }, configFile: args[2] })
+    AppStore = new LocalStore({ fileName: "MegatronLocalConfig", template: { projects: [] }, configFile: args[2] })
   } else {
-    store = new LocalStore({ fileName: "MegatronLocalConfig", template: { projects: [] } })
+    AppStore = new LocalStore({ fileName: "MegatronLocalConfig", template: { projects: [] } })
   }
 
-  console.log( "init", store.initialize() )
-  console.log( store.data, store.path )
+  console.log( "init", AppStore.initialize() )
+  console.log( AppStore.data, AppStore.path )
+
+  if ( AppStore.data.projects.length == 0 ) {
+    AppState.status = "project_setup";
+  }
+
+}
+
+function createMainWindow (args) {
 
   // Create the browser window.
   win = new BrowserWindow({ width: 800, height: 600 })
@@ -32,11 +44,29 @@ function createBackgroundWindow(args) {
 
 }
 
+function sendMessageToReact(msg) {
+  mainWindow.webContents.once('dom-ready', () => {
+    mainWindow.webContents.send('react_receive', msg)
+  });
+}
+
 app.on('ready', () => {
 
+  initAppStore(process.argv);
   mainWindow = createMainWindow(process.argv);
   backgroundWindow = createBackgroundWindow(process.argv);
+
+  // init react with the right state 
+  switch (AppState.status) {
+    case "project_setup":
+      sendMessageToReact({msg:"project_setup"})
+      break;
+  }
+
+  sendMessageToReact({msg:"set_state", data:"hello from electron"})
+
 });
+
 
 // event listener
 
@@ -44,3 +74,8 @@ ipcMain.on('bg_windowload', (event, arg) => {
   console.log(arg) // prints "ping"
  // event.returnValue = 'pong'
 })
+
+ipcMain.on('react_message', (event, arg) => {
+  console.log("react", arg)
+})
+
