@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Login from './components/login';
-import Drawer from './components/drawer'
+import Dashboard from './containers/dashboard'
 
 
 
@@ -28,7 +28,7 @@ class App extends React.Component {
 			return (
 			<div className="mainApp">
 				<div className="loginApp">
-					<Drawer />
+					<Dashboard />
 				</div>
 			</div>
 			)

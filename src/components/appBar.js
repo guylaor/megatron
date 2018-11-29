@@ -57,41 +57,12 @@ const styles = theme => ({
   title: {
     flexGrow: 1,
   },
-  drawerPaper: {
-    position: 'relative',
-    whiteSpace: 'nowrap',
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerPaperClose: {
-    overflowX: 'hidden',
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    width: theme.spacing.unit * 7,
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9,
-    },
-  },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
     height: '100vh',
     overflow: 'auto',
-  },
-  chartContainer: {
-    marginLeft: -22,
-  },
-  tableContainer: {
-    height: 320,
-  },
-  h5: {
-    marginBottom: theme.spacing.unit * 2,
   },
 });
 
@@ -101,16 +72,16 @@ class AppBarComp extends React.Component {
 		return (
 			<AppBar
 	          position="absolute"
-	          className={classNames(classes.appBar, this.props.drawerOpen && classes.appBarShift)}
+	          className={classNames(classes.appBar, this.props.open && classes.appBarShift)}
 	        >
-	          <Toolbar disableGutters={!this.props.drawerOpen} className={classes.toolbar}>
+	          <Toolbar disableGutters={!this.props.open} className={classes.toolbar}>
 	            <IconButton
 	              color="inherit"
 	              aria-label="Open drawer"
 	              onClick={this.props.handleDrawerOpen}
 	              className={classNames(
 	                classes.menuButton,
-	                this.props.drawerOpen && classes.menuButtonHidden,
+	                this.props.open && classes.menuButtonHidden,
 	              )}
 	            >
 	              <MenuIcon />
