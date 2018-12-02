@@ -10,7 +10,7 @@ var electronBinary = path.join(baseDir, 'node_modules', '.bin', 'electron')
 
 var app = new Application({
     path: electronBinary,
-    args: [baseDir]
+    args: [baseDir] // , 'test/files/test_conf.json']
 })
 
 global.before(function () {
@@ -20,6 +20,9 @@ global.before(function () {
 
 
 describe('Launch Test', function () {
+  
+  this.timeout(10000)
+
   beforeEach(function () {
       return app.start();
   });
@@ -28,14 +31,27 @@ describe('Launch Test', function () {
       return app.stop();
   });
 
-  it('opens a window', function () {
+ it('opens a window', function () {
+      
     return app.client.waitUntilWindowLoaded()
-      .getWindowCount().should.eventually.equal(1);
+      .getWindowCount().should.eventually.equal(2);
+  
   });
 
   it('tests the title', function () {
-    return app.client.waitUntilWindowLoaded()
+    return app.client.windowByIndex(1)
       .getTitle().should.eventually.equal('Megatron');
   });
+
+/*
+  it('tests the init function', function () {
+    console.log(app);
+
+    return app.client.windowByIndex(1)
+      .store.data.should.eventually.equal( {} );
+  });
+*/
+
+
 });
 

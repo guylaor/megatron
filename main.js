@@ -1,11 +1,81 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
+const LocalStore = require('./utils/local_store.js');
 
-function createWindow () {
-  // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 })
+let mainWindow;
+let backgroundWindow;
+let AppStore;
+let AppState = {
+  status : "loading"
+};
 
-  // and load the index.html of the app.
-  win.loadFile('index.html')
+function initAppStore(args) {
+
+  // setting up local storage
+  if ( args[2] != "" ) {
+    AppStore = new LocalStore({ fileName: "MegatronLocalConfig", template: { projects: [] }, configFile: args[2] })
+  } else {
+    AppStore = new LocalStore({ fileName: "MegatronLocalConfig", template: { projects: [] } })
+  }
+
+  console.log( "init", AppStore.initialize() )
+  console.log( AppStore.data, AppStore.path )
+
+  if ( AppStore.data.projects.length == 0 ) {
+    AppState.status = "project_setup";
+  }
+
 }
 
-app.on('ready', createWindow)
+function createMainWindow (args) {
+
+  // Create the browser window.
+  win = new BrowserWindow({ width: 800, height: 600 })
+  // and load the index.html of the app.
+  win.loadURL(`file://${__dirname}/index.html`);
+  return win;
+
+}
+
+function createBackgroundWindow(args) {
+
+  win = new BrowserWindow({ show: false });
+  win.loadURL(`file://${__dirname}/background/bg_index.html`);
+  return win;
+
+}
+
+function sendMessageToReact(msg) {
+  mainWindow.webContents.once('dom-ready', () => {
+    mainWindow.webContents.send('react_receive', msg)
+  });
+}
+
+app.on('ready', () => {
+
+  initAppStore(process.argv);
+  mainWindow = createMainWindow(process.argv);
+  backgroundWindow = createBackgroundWindow(process.argv);
+
+  // init react with the right state 
+  switch (AppState.status) {
+    case "project_setup":
+      sendMessageToReact({msg:"project_setup"})
+      break;
+  }
+
+  sendMessageToReact({msg:"set_state", data:"hello from electron"})
+
+});
+
+
+// event listener
+
+ipcMain.on('bg_windowload', (event, arg) => {
+  console.log(arg) // prints "ping"
+ // event.returnValue = 'pong'
+})
+
+ipcMain.on('react_message', (event, arg) => {
+  console.log("react", arg)
+})
+
