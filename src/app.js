@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Login from './components/login';
+import Dashboard from './containers/dashboard'
 
 const electron = window.require('electron');
 const fs = electron.remote.require('fs');
@@ -10,9 +11,11 @@ const ipcRenderer  = electron.ipcRenderer;
 class App extends React.Component {
 
 	constructor(props) {
+
 		super(props)
 		this.state = {
-			message : "default"
+			message : "default",
+      page: "dashboard"
 		}
 	}
 
@@ -37,15 +40,25 @@ class App extends React.Component {
 	}
 
 	render () {
-		return (
+		if (this.state.page == "login") {
+			return (
 			<div className="mainApp">
 				<div>Message: {this.state.message}</div>
 				<div className="loginApp">
 					<Login />
 				</div>
 			</div>
-
-		)
+			)
+		}
+		if (this.state.page == "dashboard") {
+			return (
+			<div className="mainApp">
+				<div className="loginApp">
+					<Dashboard />
+				</div>
+			</div>
+			)
+		}
 	}
 }
 
