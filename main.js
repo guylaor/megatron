@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const LocalStore = require('./utils/local_store.js');
+const FileOpener = require('./utils/file_opener.js');
 
 let mainWindow;
 let backgroundWindow;
@@ -52,6 +53,8 @@ function sendMessageToReact(msg) {
 
 app.on('ready', () => {
 
+  console.log("platform", process.platform)
+
   initAppStore(process.argv);
   mainWindow = createMainWindow(process.argv);
   backgroundWindow = createBackgroundWindow(process.argv);
@@ -64,6 +67,9 @@ app.on('ready', () => {
   }
 
   sendMessageToReact({msg:"set_state", data:"hello from electron"})
+
+  //fo = new FileOpener();
+  //fo.Open('test/files/test.docx', "word")
 
 });
 
