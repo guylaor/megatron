@@ -15,7 +15,7 @@ class App extends React.Component {
 		super(props)
 		this.state = {
 			message : "default",
-      page: "dashboard"
+      		page: "dashboard"
 		}
 	}
 

@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
 	render () {
 		return (
 			<div>
-				<AppBarComp drawerOpen={this.state.open} handleDrawerOpen={this.handleDrawerOpen}/>
+				<AppBarComp drawerOpen={this.state.open} handleDrawerOpen={this.handleDrawerOpen} />
 				<Drawer open={this.state.open} handleDrawerClose={this.handleDrawerClose}/>
 			</div>
 		)
