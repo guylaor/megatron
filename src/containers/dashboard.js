@@ -1,6 +1,7 @@
 import React from 'react'
 import Drawer from '../components/drawer.js'
 import AppBarComp from '../components/appBar.js'
+import projects from '../components/project_selection.js'
 
 
 class Dashboard extends React.Component {

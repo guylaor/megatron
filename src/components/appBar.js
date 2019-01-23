@@ -14,7 +14,7 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import { projects, mainListItems, secondaryListItems } from './listItems';
 
 const drawerWidth = 240;
 
@@ -72,16 +72,16 @@ class AppBarComp extends React.Component {
 		return (
 			<AppBar
 	          position="absolute"
-	          className={classNames(classes.appBar, this.props.open && classes.appBarShift)}
+	          className={classNames(classes.appBar, this.props.drawerOpen && classes.appBarShift)}
 	        >
-	          <Toolbar disableGutters={!this.props.open} className={classes.toolbar}>
+	          <Toolbar disableGutters={!this.props.drawerOpen} className={classes.toolbar}>
 	            <IconButton
 	              color="inherit"
 	              aria-label="Open drawer"
 	              onClick={this.props.handleDrawerOpen}
 	              className={classNames(
 	                classes.menuButton,
-	                this.props.open && classes.menuButtonHidden,
+	                this.props.drawerOpen && classes.menuButtonHidden,
 	              )}
 	            >
 	              <MenuIcon />
