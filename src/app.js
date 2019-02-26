@@ -2,6 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import Login from './components/login';
 import Dashboard from './containers/dashboard'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import CreateProject from './components/newProject';
 
 const electron = window.require('electron');
 const fs = electron.remote.require('fs');
@@ -52,11 +54,13 @@ class App extends React.Component {
 		}
 		if (this.state.page == "dashboard") {
 			return (
-			<div className="mainApp">
-				<div className="loginApp">
-					<Dashboard />
+				<Router>
+				<div className="mainApp">
+					<div className="loginApp">
+						<Dashboard />
+					</div>
 				</div>
-			</div>
+				</Router>
 			)
 		}
 	}

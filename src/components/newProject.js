@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -9,22 +10,24 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import ProjectSelection from './project_selection'
-import CreateProject from './newProject'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+class CreateProject extends React.Component {
+	render () {
+		return (
+			<form action="/">
+				Name:<br/>
+				<input type="text" name="firstname" value="Name" />
+				<br/>
+				Endpoint:<br/>
+				<input type="text" name="lastname" value="Endpoint" />
+				<br/>
+				Local Folder:<br/>
+				<input type="text" name="lastname" value="Local Folder" />
+				<br/><br/>
+				<input type="submit" value="Submit" />
+		</form> 
+		)
+	}
+}
 
-
-
-export const mainListItems = (
-  <div>
-    <ProjectSelection />
-  </div>
-);
-
-export const secondaryListItems = (
-  <div>
-    <Link to='/CreateProject'> CreateProject </Link>
-  </div>
-);
-
+export default CreateProject;
